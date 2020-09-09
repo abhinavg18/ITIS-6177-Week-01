@@ -1,8 +1,11 @@
-var http = require('http');
+const express = require('express');
+const app = express();
+const port = 8080;
 
-http.createServer(function (req, res) {
-  res.write('Hello World!'); 
-  res.end(); 
-}).listen(8080, function(){
- console.log("server start at port 8080"); 
-});
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+})
+
+app.listen(port, () => {
+  console.log(`App listening at http://localhost:${port}`);
+})
